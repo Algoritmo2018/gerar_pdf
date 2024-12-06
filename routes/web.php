@@ -5,7 +5,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 
 Route::get('/', function () {
-    $pdf = Pdf::loadView('welcome')->setPaper('a4', 'landscape');
+    $data['name'] = 'Luis Mateus';
+    $pdf = Pdf::loadView('welcome', $data)->setPaper('a4', 'landscape');
     return $pdf->stream();
 
 });
